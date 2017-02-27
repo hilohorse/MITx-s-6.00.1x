@@ -4,6 +4,76 @@ Midterm exam code for MIT online course Introduction to Computer Science and Pro
 
 """
 
+"""
+#1-1： False
+#1-2： False
+#1-3： False
+#1-4： False
+#1-5： False
+#1-6： True
+#1-7： False
+#1-8： False
+#1-9： True
+#1-10：True
+
+#2-1：L has integer keys
+#2-2: The loop will always immediately terminate.
+#2-3: a tuple 
+#2-4: type(s) can be tuple
+#2-5: for i in range(1000001, -1, -2): print(f)
+
+
+#3-1: ["iBoy", "iGirl", "iQ", "iC","iPaid","iPad"]
+("iBoy", "iGirl", "iQ", "iC","iPaid","iPad")
+[ ( "iBoy", "iGirl", "iQ", "iC","iPaid","iPad") ]
+( [ "iBoy", "iGirl", "iQ", "iC","iPaid","iPad" ], )
+["iQ"]
+
+#3-2: Python has arbitrary precision arithmetic.
+
+#4: See below function defintion
+
+#5: See below function defintion
+"""
+
+def closest_power(base, num):
+    '''
+    base: base of the exponential, integer > 1
+    num: number you want to be closest to, integer > 0
+    Find the integer exponent such that base**exponent is closest to num.
+    Note that the base**exponent may be either greater or smaller than num.
+    In case of a tie, return the smaller value.
+    Returns the exponent.
+    '''
+    i = 0 
+    while base ** i < num:
+        i += 1
+    if ((base ** i) - num) >= (num - (base ** (i - 1))):
+        return i - 1
+    else:
+        return i
+
+def dotProduct(listA, listB):
+    '''
+    listA: a list of numbers
+    listB: a list of numbers of the same length as listA
+    '''
+    num = 0
+    for i in range(len(listA)):
+        num += (listA[i] * listB[i])
+    return num
+
+def deep_reverse(L):
+    """ assumes L is a list of lists whose elements are ints
+    Mutates L such that it reverses its elements and also 
+    reverses the order of the int elements in every element of L. 
+    It does not return anything.
+    """
+    for i in range(len(L)):
+        if type(L[i]) == list:
+            L[i].reverse()
+    return L.reverse()
+
 def dict_interdiff(d1, d2):
     """
     The function takes in two dictionaries (d1 and d2). The function will return a tuple of two dictionaries:
