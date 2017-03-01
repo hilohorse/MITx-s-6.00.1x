@@ -114,14 +114,17 @@ def applyF_filterG(L, f, g):
         i if g(f(i)) returns True, and no other elements
     Returns the largest element in the mutated L or -1 if the list is empty
     """
+    list_remove = []
     for i in L:
-        if g(f(i)) == False:
-            L.remove(i)
-    if L == None:
-        return -1
+        if not g(f(i)):
+            list_remove.append(i)
     else:
+        for i in list_remove:
+            L.remove(i)
+        if L == []:
+            return -1
         return max(L)
-    return L
+
 
 def flatten(aList):
     '''
